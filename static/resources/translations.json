@@ -1,0 +1,8 @@
+{
+  "es": {
+    "loadingDescription": "Este proyecto aún se encuentra en desarrollo. Actualmente integra un motor modular con canvas escalable, transiciones visuales dinámicas, animaciones reactivas al viento y una interfaz UI interactiva, todo sin librerías externas; tanto el código como los recursos gráficos fueron creados por Fatios-code."
+  },
+  "en": {
+    "loadingDescription": "This project is still under development. It currently integrates a modular engine with scalable canvas, dynamic visual transitions, wind-reactive animations, and an interactive UI interface, all without external libraries; both the code and the graphic resources were created by Fatios-code."
+  }
+}

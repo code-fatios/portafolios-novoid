@@ -1,0 +1,23 @@
+/* EN|🎨 UI CONTENT ANIMATIONS — Interactive motion for dynamic UI
+   ES|🎨 ANIMACIONES DE CONTENIDO UI — Movimiento interactivo para UI dinámico */
+
+/*━━━━━━━━━━ 🔁 ICON HOVER + POP ━━━━━━━━━━*/
+.svg-wrapper {
+  transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.svg-wrapper:hover {
+  transform: scale(var(--scale-hover, 1.1));
+  color: var(--color-hover, #ffffff);
+  filter: drop-shadow(var(--glow, none));
+  animation: button-pop 0.25s ease;
+}
+
+/**
+ * 💬 Creates a subtle "pop" animation effect when hovering icons.
+ */
+@keyframes button-pop {
+  0%   { transform: scale(1); }
+  60%  { transform: scale(calc(var(--scale-hover, 1.1) + 0.05)); }
+  100% { transform: scale(var(--scale-hover, 1.1)); }
+}

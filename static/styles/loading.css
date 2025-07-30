@@ -1,0 +1,177 @@
+/* EN|🚀 LOADING SYSTEM — Styles for initial loading screen
+   ES|🚀 SISTEMA DE CARGA — Estilos para la pantalla de carga inicial */
+
+/*━━━━━━━━━━ 🏗️ LOADING CONTAINER ━━━━━━━━━━*/
+#initial-loading {
+  position: fixed;
+  inset: 0;
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 0.8s ease;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
+}
+
+#initial-loading.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.loading-container {
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.4rem;
+  padding: 1.2rem 0;
+}
+
+/*━━━━━━━━━━ 🎛️ RESOLUTION SELECTOR ━━━━━━━━━━*/
+.loading-options {
+  color: white;
+  font-size: 0.9rem;
+  opacity: 0;
+  animation: fadeInUp 1s ease-out 0.5s forwards;
+  min-height: 40px; /* 💬 Prevents layout collapse before animation */
+}
+
+.loading-options select {
+  margin-top: 0.3rem;
+  padding: 0.3rem 0.6rem;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
+  border: 1px solid #00f2e9;
+  background-color: #000;
+  color: white;
+  border-radius: 4px;
+  text-shadow: 0 0 4px #00f2e9;
+}
+
+/*━━━━━━━━━━ 📜 DESCRIPTION TEXT ━━━━━━━━━━*/
+#loading-description {
+  color: white;
+  font-size: 0.9rem;
+  max-width: 320px;
+  text-align: center;
+  text-shadow: 0 0 5px #00f2e9, 0 0 10px #00f2e9;
+  opacity: 1;
+  min-height: 80px; /* 💬 Keeps height consistent before reveal */
+}
+
+#loading-description span {
+  opacity: 0;
+  display: inline-block;
+  transform: translateX(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#loading-description span.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/*━━━━━━━━━━ 📊 PROGRESS LABEL ━━━━━━━━━━*/
+#loading-label {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 1rem;
+  color: white;
+  text-shadow: 0 0 6px #00f2e9;
+  margin-bottom: 0.4rem;
+  opacity: 1;
+  min-height: 20px; /* 💬 Prevents vertical jumps */
+}
+
+.loading-word {
+  font-weight: bold;
+}
+
+/*━━━━━━━━━━ 📈 PROGRESS BAR ━━━━━━━━━━*/
+.loading-bar {
+  width: 100%;
+  height: 20px;
+  border: 2px solid #00f2e9;
+  border-radius: 10px;
+  background-color: transparent;
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.loading-progress {
+  height: 100%;
+  width: 0%;
+  background-color: white;
+  box-shadow: 0 0 5px #00f2e9, 0 0 10px #00f2e9, 0 0 15px #00f2e9;
+  transition: width 0.1s ease-out;
+}
+
+/*━━━━━━━━━━ ▶️ START BUTTON ━━━━━━━━━━*/
+#start-button {
+  padding: 0.6rem 1.6rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  background-color: white;
+  color: #00f2e9;
+  font-family: 'Rubik', sans-serif;
+  cursor: pointer;
+  opacity: 0;
+  transform: scale(0.95);
+  pointer-events: none;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  box-shadow: 0 0 5px #00f2e9, 0 0 10px #00f2e9, 0 0 15px #00f2e9;
+  min-height: 40px; /* 💬 Matches progress bar height */
+}
+
+#start-button.fade-in-button {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+}
+
+#start-button:hover {
+  background-color: #e0fdfc;
+  transform: scale(1);
+}
+
+/*━━━━━━━━━━ ✨ KEYFRAME ANIMATIONS ━━━━━━━━━━*/
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/*━━━━━━━━━━ 🌐 LANGUAGE TOGGLE ━━━━━━━━━━*/
+#lang-switcher {
+  position: absolute;
+  top: 12px;
+  left: 15px;
+  z-index: 1001;
+}
+
+#lang-toggle {
+  background: transparent;
+  border: none;
+  color: #00f2e9;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  text-shadow: 0 0 6px #00f2e9;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+#lang-toggle:hover {
+  color: white;
+  transform: scale(1.1);
+}

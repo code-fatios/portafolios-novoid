@@ -1,0 +1,157 @@
+/* EN|📐 BACKGROUND STRUCTURE — Scene layout
+   ES|📐 ESTRUCTURA DE FONDO — Distribución de escena */
+
+/*━━━━━━━━━━ 🌍 GLOBAL VARIABLES ━━━━━━━━━━*/
+:root {
+  --vh: 1vh; /* 💬 Used for responsive viewport height */
+}
+
+body {
+  background-color: #b8f3ff;
+}
+
+/*━━━━━━━━━━ 🖼️ SCENE CANVAS ━━━━━━━━━━*/
+#scene-canvas {
+  position: relative;
+  background: transparent;
+  transform-origin: center;
+}
+
+.canvas-hidden {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/*━━━━━━━━━━ ☁️ SKY LAYERS ━━━━━━━━━━*/
+/* 💬 Handles cross-fade transitions for sky backgrounds */
+.sky-layer,
+.sky-layer-next {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.sky-layer-next {
+  opacity: 0;
+  transition: opacity 3s ease-in-out;
+}
+
+/*━━━━━━━━━━ 📐 VIEWPORT WRAPPER ━━━━━━━━━━*/
+#scene-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: calc(var(--vh, 1vh) * 100);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/*━━━━━━━━━━ 🏔️ STATIC LAYERS ━━━━━━━━━━*/
+.static-layer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
+/*━━━━━━━━━━ 🔄 SCROLLABLE WRAPPERS ━━━━━━━━━━*/
+.scroll-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+.scroll-instance {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  object-fit: fill;
+}
+
+.scroll-instance-a { left: 0; }
+.scroll-instance-b { left: 6667px; } /* 💬 Positioned off-screen for infinite scroll */
+
+/*━━━━━━━━━━ 🌱 LOGIC REGIONS ━━━━━━━━━━*/
+.grass-region {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.grass-layer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.grass {
+  height: auto;
+  width: auto;
+  user-select: none;
+  pointer-events: none;
+}
+
+/*━━━━━━━━━━ 🎞️ ANIMATION CLASSES ━━━━━━━━━━*/
+.breathing {
+  animation: breathing-pulse 3s ease-in-out infinite;
+  transform-origin: center center;
+}
+
+/*━━━━━━━━━━ 📏 SCALING (CSS OVERRIDE) ━━━━━━━━━━*/
+.scene-canvas-centered {
+  transform: scale(var(--scale-x), var(--scale-y));
+  transform-origin: top left;
+}
+
+/*━━━━━━━━━━ 💡 LANTERN WRAPPER ━━━━━━━━━━*/
+.lantern-wrapper {
+  transform-origin: top center;
+  display: inline-block;
+  position: absolute;
+  pointer-events: none;
+}
+
+.lantern {
+  display: block;
+  transform: translateY(20px); /* 💬 Visual adjustment for hanging lantern */
+  user-select: none;
+}
+
+.waterfall-frame {
+  width: 100%;
+  height: 100%;
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  pointer-events: none;
+}
+
+/*━━━━━━━━━━ 🔦 LANTERN GLOW EFFECT ━━━━━━━━━━*/
+.lantern-glow {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255,210,150,0.6) 0%,
+    rgba(255,170,100,0.2) 60%,
+    transparent 100%
+  );
+  transform: translate(-50%, -20%);
+  pointer-events: none;
+  transition: opacity 2s ease-in-out;
+  opacity: 1;
+}

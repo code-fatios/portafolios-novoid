@@ -1,0 +1,42 @@
+/* EN|🎥 BACKGROUND ANIMATIONS — Visual effects logic (CSS-based)
+   ES|🎥 ANIMACIONES DE FONDO — Lógica de efectos visuales (basado en CSS) */
+
+/*━━━━━━━━━━ 🎞️ GLOBAL ANIMATIONS ━━━━━━━━━━*/
+
+/*────────── 🫁 Breathing Pulse ──────────*/
+
+@keyframes breathing-pulse {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.03); }
+  100% { transform: scale(1); }
+}
+
+/*────────── 🌊 Foam Expansion ──────────*/
+@keyframes foam-expand {
+  0%   { transform: scale(1) rotate(0deg); }
+  50%  { transform: scale(1.01) rotate(0.2deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+.waterfall-foam-frame {
+  width: calc(var(--scene-width) * 0.11276);
+  height: calc(var(--scene-height) * 0.08333);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  pointer-events: none;
+  animation: foam-expand 0.5s ease-in-out infinite;
+  opacity: 0.9; /* 💬 Slight transparency for blending */
+}
+
+/*────────── 💧 Water Edge Pulse ──────────*/
+@keyframes water-edge-pulse {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.03); }
+  100% { transform: scale(1); }
+}
+
+.water-edge-pulse {
+  animation: water-edge-pulse 2.5s ease-in-out infinite;
+  transform-origin: center;
+}

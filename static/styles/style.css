@@ -1,0 +1,194 @@
+/* EN|🌟 UI STYLES — Clean visual layer for overlay components
+   ES|🌟 ESTILOS UI — Capa visual limpia para componentes superpuestos */
+
+/*━━━━━━━━━━ 🧩 UI OVERLAY ━━━━━━━━━━*/
+#ui-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: auto;
+  font-family: 'Cinzel', serif;
+}
+
+/*━━━━━━━━━━ 🌐 SOCIAL ICONS ━━━━━━━━━━*/
+.svg-wrapper {
+  transition: transform 0.3s ease, filter 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+  display: inline-block;
+  pointer-events: auto;
+  color: var(--color-base, #ffffff);
+  filter: drop-shadow(var(--glow, none));
+}
+
+/**
+ * 💬 Ensures currentColor applies to all SVG shapes.
+ */
+.svg-icon path,
+.svg-icon rect,
+.svg-icon circle,
+.svg-icon line {
+  fill: currentColor;
+  stroke: currentColor;
+}
+
+/**
+ * 💬 Override for Instagram shapes that need stroke instead of fill.
+ */
+.svg-instagram path,
+.svg-instagram rect {
+  fill: none !important;
+  stroke: currentColor !important;
+}
+
+/*━━━━━━━━━━ 🕒 CLOCK ━━━━━━━━━━*/
+#ui-clock {
+  font-family: 'MedievalSharp', cursive;
+  font-size: 24px;
+  font-weight: normal;
+  letter-spacing: 1px;
+}
+
+/*━━━━━━━━━━ 🌙 MODE SWITCHER ━━━━━━━━━━*/
+.mode-switcher-wrapper {
+  position: absolute;
+  top: 60px;
+  right: 60px;
+  z-index: 9999;
+}
+
+.mode-switcher-button {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background-color: #33ccff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+  opacity: 0.8;
+}
+
+.mode-switcher-button:hover {
+  transform: scale(1.05);
+}
+
+.mode-switcher-dropdown {
+  position: absolute;
+  top: 50px; 
+  left: 50%;
+  transform: translateX(-50%);
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 6px 10px;
+  border-radius: 12px;
+  backdrop-filter: blur(4px);
+  transition: opacity 0.3s ease;
+  overflow: hidden;
+  z-index: 10000;
+}
+
+.mode-switcher-dropdown.open {
+  display: flex;
+  animation: dropdown-fade-in 0.3s ease forwards;
+}
+
+.mode-option {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  opacity: 0.8;
+}
+
+.mode-option .svg-icon {
+  color: #ffffff;
+  fill: currentColor;
+  stroke: currentColor;
+}
+
+.mode-option:hover {
+  transform: scale(1.2);
+}
+
+@keyframes dropdown-fade-in {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+/*━━━━━━━━━━ 🌟 LOADING LOGO ━━━━━━━━━━*/
+#loading-logo {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 100px;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 10000;
+}
+
+#loading-logo img {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 0 15px rgba(0, 255, 255, 0.7));
+  transform: scale(0.8); /* 💬 Slight shrink before fade-in */
+  transition: opacity 1.2s ease, transform 1.2s ease;
+}
+
+.svg-icon {
+  transition: color 0.8s ease, fill 0.8s ease, stroke 0.8s ease;
+}
+
+/*━━━━━━━━━━ 🖋️ GLOBAL SIGNATURE ━━━━━━━━━━*/
+#global-signature {
+  position: fixed;
+  bottom: 12px;
+  right: 20px;
+  font-family: 'Rubik', sans-serif;
+  font-size: 14px;
+  color: #ffffff;
+  opacity: 0.7;
+  text-shadow: 0 0 4px rgba(0,0,0,0.6);
+  z-index: 10000;
+  pointer-events: none;
+}
+
+/*────────── 🎨 Local Fonts ──────────*/
+@font-face {
+  font-family: 'MedievalSharp';
+  src: url('../resources/fonts/MedievalSharp-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Rubik';
+  src: url('../resources/fonts/Rubik-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+body {
+  font-family: 'Rubik', sans-serif;
+}
+
+h1, h2, h3 {
+  font-family: 'MedievalSharp', cursive;
+}

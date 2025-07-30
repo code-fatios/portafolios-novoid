@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Novoid - Main Portal</title>
+
+  <!-- 🌌 Favicon -->
+  <link rel="icon" href="static/resources/img/logo.ico" type="image/x-icon">
+
+  <!-- 🌌 Visual style of the loading system -->
+  <link rel="stylesheet" href="static/styles/loading.css">
+
+  <!--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━-->
+  <!-- BACKGROUND STRUCTURE & ANIMATIONS -->
+  <!--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━-->
+  <link rel="stylesheet" href="static/styles/backgroundStructure.css" />
+  <link rel="stylesheet" href="static/styles/backgroundAnimations.css" />
+
+  <!-- UI CONTENT STYLES & ANIMATIONS -->
+  <link rel="stylesheet" href="static/styles/style.css" />
+  <link rel="stylesheet" href="static/styles/uiContentAnimation.css" />
+</head>
+
+<body>
+  <!-- 🌌 Main scene container -->
+  <div id="scene-wrapper">
+    <div id="scene-container"></div>
+  </div>
+
+  <!-- 🚀 Initial loading system with resolution selector -->
+  <script type="module" src="static/scripts/loading.js"></script>
+
+  <!-- ⚙️ Main entry point (only after loading.js) -->
+  <script type="module" src="static/scripts/main.js"></script>
+</body>
+</html>
